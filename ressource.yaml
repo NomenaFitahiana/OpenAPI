@@ -69,6 +69,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Meal'
+    patch:
+      tags:
+        - Partially update a meal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartialMeal'
+        required: true
+      responses:
+        200: 
+          description: Meal updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Meal'
+          
     delete:
       tags:
         - Delete a meal
@@ -106,5 +123,13 @@ components:
         name:
           type: string
         age:
-          type: number
-          format: float
+          type: integer
+    PartialMeal:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
