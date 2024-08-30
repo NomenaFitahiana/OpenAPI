@@ -63,6 +63,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Customer'
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartialCustomer'
+        required: true
+      responses:
+        200:
+          description: Partial customer updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
     delete:
       requestBody:
         content:
@@ -95,6 +109,15 @@ components:
     CreateCustomer:
       type: object
       properties:
+        name:
+          type: string
+        age:
+          type: integer
+    PartialCustomer:
+      type: object
+      properties:
+        id:
+          type: string
         name:
           type: string
         age:
